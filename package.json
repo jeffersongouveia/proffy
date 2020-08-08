@@ -1,6 +1,7 @@
 {
-  "name": "proffy",
+  "name": "web-proffy",
   "version": "0.1.0",
+  "description": "The web version of Proffy project",
   "private": true,
   "dependencies": {
     "axios": "^0.19.2",
