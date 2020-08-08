@@ -1,39 +1,54 @@
 import React from 'react'
 
-import whatsappIcon from '../../assets/images/icons/whatsapp.svg'
+import api from '../../services/api'
 
+import whatsappIcon from '../../assets/images/icons/whatsapp.svg'
 import './styles.css'
 
-function TeacherItem() {
+export interface Teacher {
+  id: number
+  name: string
+  subject: string
+  cost: number
+  avatar: string
+  whatsapp: string
+  bio: string
+}
+
+interface TeacherItemProps {
+  teacher: Teacher
+}
+
+const TeacherItem: React.FC<TeacherItemProps> = ({ teacher }) => {
+  function createNewConnection() {
+    api.post('connections', { user_id: teacher.id })
+  }
+
   return (
-      <article className="teacher-item">
-        <header>
-          <img src="https://pbs.twimg.com/profile_images/1262289899786559489/wxFM6Q30_400x400.jpg" alt="Emma Bostian" />
+    <article className="teacher-item">
+      <header>
+        <img src={teacher.avatar} alt={teacher.name} />
 
-          <div>
-            <strong>Emma Bostian</strong>
-            <span>Front End</span>
-          </div>
-        </header>
+        <div>
+          <strong>{teacher.name}</strong>
+          <span>{teacher.subject}</span>
+        </div>
+      </header>
 
+      <p>{teacher.bio}</p>
+
+      <footer>
         <p>
-          Software Engineer at <a href="https://www.twitter.com/spotify">@spotify</a> in Stockholm 🇸🇪<br/>
-          Podcasting <a href="https://www.twitter.com/ladybugpodcast">@ladybugpodcast</a> 🎙💻<br/>
-          American Abroad 🇺🇸
+          Preço/hora
+          <strong>R$ {teacher.cost}</strong>
         </p>
 
-        <footer>
-          <p>
-            Preço/hora
-            <strong>R$ 300,00</strong>
-          </p>
-
-          <button type="button">
-            <img src={whatsappIcon} alt="WhatsApp" />
-            Entrar em contato
-          </button>
-        </footer>
-      </article>
+        <button type="button" onClick={createNewConnection}>
+          <img src={whatsappIcon} alt="WhatsApp" />
+          Entrar em contato
+        </button>
+      </footer>
+    </article>
   )
 }
 
