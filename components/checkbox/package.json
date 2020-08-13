@@ -1,0 +1,26 @@
+{
+  "name": "@bit/ans.base-ui.checkbox",
+  "version": "0.1.4",
+  "homepage": "https://bit.dev/ans/base-ui/checkbox",
+  "main": "dist/index.js",
+  "componentId": {
+    "scope": "ans.base-ui",
+    "name": "checkbox",
+    "version": "0.1.4"
+  },
+  "dependencies": {
+    "prop-types": "15.7.2",
+    "@bit/ans.base-ui._variables": "0.1.0"
+  },
+  "devDependencies": {},
+  "peerDependencies": {
+    "classnames": "2.2.6",
+    "react": ">=16"
+  },
+  "license": "SEE LICENSE IN LICENSE",
+  "bit": {
+    "env": {
+      "compiler": "bit.envs/compilers/react@1.0.1"
+    }
+  }
+}

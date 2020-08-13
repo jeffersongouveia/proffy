@@ -1,5 +1,7 @@
 import React from 'react'
 
+// @ts-ignore
+import Checkbox from '@bit/altima-assurances.altima-ui-test.ui.checkbox'
 import FloatInput from '../../components/form/FloatInput'
 
 import logo from '../../assets/images/logo.svg'
@@ -28,7 +30,7 @@ function Login() {
         <form>
           <FloatInput name="email" label="E-mail" />
           <FloatInput name="password" label="Senha" type="password" />
-          <input type="checkbox" />
+          <Checkbox value="Lembre-se" />
         </form>
       </div>
     </div>

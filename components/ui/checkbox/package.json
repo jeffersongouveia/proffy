@@ -1,0 +1,27 @@
+{
+  "name": "@bit/altima-assurances.altima-ui-test.ui.checkbox",
+  "version": "0.0.8",
+  "homepage": "https://bit.dev/altima-assurances/altima-ui-test/ui/checkbox",
+  "main": "dist/index.js",
+  "componentId": {
+    "scope": "altima-assurances.altima-ui-test",
+    "name": "ui/checkbox",
+    "version": "0.0.8"
+  },
+  "dependencies": {
+    "enzyme-adapter-react-16": "^1.15.2",
+    "enzyme": "^3.11.0",
+    "antd": "^4.0.1"
+  },
+  "devDependencies": {},
+  "peerDependencies": {
+    "react": "^16.10.1",
+    "react-dom": "^16.10.1"
+  },
+  "license": "SEE LICENSE IN LICENSE",
+  "bit": {
+    "env": {
+      "compiler": "bit.envs/compilers/react@1.0.14"
+    }
+  }
+}
