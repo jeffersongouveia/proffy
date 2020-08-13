@@ -39,7 +39,56 @@
   margin: 0 auto;
 }
 
-#page-login .form h2,
-#page-login .form form {
+#page-login .form h2 {
+  font: 3.6rem Poppins;
+  font-weight: 600;
+  line-height: 36px;
+  margin-bottom: 4rem;
   width: 100%;
+}
+
+#page-login .form form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas:
+    "email email"
+    "password password"
+    "remember-me forgot-password";
+  align-items: center;
+  width: 100%;
+}
+
+#page-login .form form .email {
+  grid-area: email;
+}
+
+#page-login .form form .password {
+  grid-area: password;
+}
+
+#page-login .form form .remember-me {
+  grid-area: remember-me;
+  margin-left: 2px;
+}
+
+#page-login .form form .forgot-password {
+  grid-area: forgot-password;
+  justify-self: end;
+}
+
+#page-login .form form .forgot-password:hover {
+  color: var(--color-primary);
+}
+
+#page-login .form form .remember-me,
+#page-login .form form .forgot-password {
+  margin-top: 20px;
+}
+
+#page-login .form .forgot-password {
+  font: 1.4rem Poppins;
+  font-style: normal;
+  font-weight: normal;
+  line-height: 24px;
+  color: var(--color-text-complement);
 }

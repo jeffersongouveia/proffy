@@ -45,3 +45,21 @@
   font-size: 1.3rem;
   color: #C1BCCC;
 }
+
+.float-input .right-icon {
+  font-size: 2.5rem;
+  color: var(--color-text-complement);
+  position: absolute;
+  right: 5%;
+  top: 23%;
+}
+
+.float-input .no-top-border {
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+.float-input .no-bottom-border {
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}

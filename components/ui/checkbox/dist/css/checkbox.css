@@ -17,7 +17,8 @@ body .ant-checkbox .ant-checkbox-checked:hover {
 }
 
 body .ant-checkbox-checked::after {
-  border-color: rgba(48, 48, 47, 0.2);
+  border-color: rgba(48, 48, 47, 0.5);
+  border-radius: 8px;
 }
 
 body .ant-checkbox-input:focus + .ant-checkbox-inner {

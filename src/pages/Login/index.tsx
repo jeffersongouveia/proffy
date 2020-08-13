@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 // @ts-ignore
 import Checkbox from '@bit/altima-assurances.altima-ui-test.ui.checkbox'
@@ -28,9 +29,32 @@ function Login() {
         <h2>Fazer login</h2>
 
         <form>
-          <FloatInput name="email" label="E-mail" />
-          <FloatInput name="password" label="Senha" type="password" />
-          <Checkbox value="Lembre-se" />
+          <FloatInput
+            name="email"
+            label="E-mail"
+            className="email"
+            disableBottomBorder
+          />
+
+          <FloatInput
+            name="password"
+            label="Senha"
+            type="password"
+            className="password"
+            disableTopBorder
+            isPassword
+          />
+
+          <div className="remember-me">
+            <Checkbox value="Lembrar-me" />
+          </div>
+
+          <Link
+            to="/forget-my-password"
+            className="forgot-password"
+          >
+            Esqueci minha senha
+          </Link>
         </form>
       </div>
     </div>
