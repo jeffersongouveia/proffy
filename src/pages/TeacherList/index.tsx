@@ -4,8 +4,8 @@ import api from '../../services/api'
 
 import PageHeader from '../../components/PageHeader'
 import TeacherItem, { Teacher } from '../../components/TeacherItem'
-import Input from '../../components/Input'
-import Select from '../../components/Select'
+import Input from '../../components/form/Input'
+import Select from '../../components/form/Select'
 
 import './styles.css'
 

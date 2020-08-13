@@ -4,9 +4,9 @@ import { useHistory } from 'react-router-dom'
 import api from '../../services/api'
 
 import PageHeader from '../../components/PageHeader'
-import Input from '../../components/Input'
+import Input from '../../components/form/Input'
 import Textarea from '../../components/Textarea'
-import Select from '../../components/Select'
+import Select from '../../components/form/Select'
 
 import warningIcon from '../../assets/images/icons/warning.svg'
 import './styles.css'
