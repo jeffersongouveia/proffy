@@ -53,7 +53,8 @@
   grid-template-areas:
     "email email"
     "password password"
-    "remember-me forgot-password";
+    "remember-me forgot-password"
+    "sign-in sign-in";
   align-items: center;
   width: 100%;
 }
@@ -74,6 +75,11 @@
 #page-login .form form .forgot-password {
   grid-area: forgot-password;
   justify-self: end;
+}
+
+#page-login .form form .sign-in {
+  grid-area: sign-in;
+  margin-top: 4rem;
 }
 
 #page-login .form form .forgot-password:hover {

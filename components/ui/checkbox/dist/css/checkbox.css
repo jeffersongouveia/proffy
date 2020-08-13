@@ -13,7 +13,7 @@ body .ant-checkbox-wrapper {
 }
 
 body .ant-checkbox .ant-checkbox-checked:hover {
-  border-color: var(--color-secundary) !important;
+  border-color: var(--color-secondary) !important;
 }
 
 body .ant-checkbox-checked::after {
@@ -26,13 +26,13 @@ body .ant-checkbox-input:focus + .ant-checkbox-inner {
 }
 
 body .ant-checkbox-checked > .ant-checkbox-inner {
-  background-color: var(--color-secundary);
-  border-color: var(--color-secundary) !important;
+  background-color: var(--color-secondary);
+  border-color: var(--color-secondary) !important;
 }
 
 body .ant-checkbox-wrapper:hover .ant-checkbox-inner,
 body .ant-checkbox:hover .ant-checkbox-inner {
-  border-color: var(--color-secundary) !important;
+  border-color: var(--color-secondary) !important;
 }
 
 body .ant-checkbox-checked .ant-checkbox-inner::after {

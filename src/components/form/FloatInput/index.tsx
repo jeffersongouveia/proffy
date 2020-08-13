@@ -11,9 +11,11 @@ interface FloatInputProps extends React.InputHTMLAttributes<HTMLInputElement> {
   isPassword?: boolean
 }
 
-const FloatInput: React.FC<FloatInputProps> = ({ name, label, className, ...rest }) => {
-  const noTopBorderClass = rest.disableTopBorder ? 'no-top-border' : ''
-  const noBottomBorderClass = rest.disableBottomBorder ? 'no-bottom-border' : ''
+const FloatInput: React.FC<FloatInputProps> = (props) => {
+  const { name, label, className, disableTopBorder, disableBottomBorder, isPassword, ...rest } = props
+
+  const noTopBorderClass = disableTopBorder ? 'no-top-border' : ''
+  const noBottomBorderClass = disableBottomBorder ? 'no-bottom-border' : ''
   const noBorders = `${noTopBorderClass} ${noBottomBorderClass}`.trim()
 
   return (
@@ -31,7 +33,7 @@ const FloatInput: React.FC<FloatInputProps> = ({ name, label, className, ...rest
         {label}
       </label>
 
-      {rest.isPassword && (
+      {isPassword && (
         <div className="right-icon">
           <i className="ri-eye-line" />
         </div>

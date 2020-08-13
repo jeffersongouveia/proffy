@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 // @ts-ignore
 import Checkbox from '@bit/altima-assurances.altima-ui-test.ui.checkbox'
 import FloatInput from '../../components/form/FloatInput'
+import Button from '../../components/form/Button'
 
 import logo from '../../assets/images/logo.svg'
 import login from '../../assets/images/backgrounds/login.svg'
@@ -55,6 +56,10 @@ function Login() {
           >
             Esqueci minha senha
           </Link>
+
+          <Button width="100%" className="sign-in">
+            Entrar
+          </Button>
         </form>
       </div>
     </div>
