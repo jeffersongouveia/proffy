@@ -40,7 +40,6 @@ function Login() {
           <FloatInput
             name="password"
             label="Senha"
-            type="password"
             className="password"
             disableTopBorder
             isPassword

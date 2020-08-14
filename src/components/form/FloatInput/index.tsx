@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 
 import './styles.css'
 
@@ -18,12 +18,27 @@ const FloatInput: React.FC<FloatInputProps> = (props) => {
   const noBottomBorderClass = disableBottomBorder ? 'no-bottom-border' : ''
   const noBorders = `${noTopBorderClass} ${noBottomBorderClass}`.trim()
 
+  const [showPassword, setShowPassword] = useState(false)
+
+  const initialType = isPassword && !showPassword ? 'password' : props.type || 'text'
+  const [inputType, setInputType] = useState(initialType)
+
+  function handleTogglePassword() {
+    if (isPassword && !showPassword) {
+      setInputType('password')
+    } else {
+      setInputType(props.type || 'text')
+    }
+  }
+
+  useEffect(handleTogglePassword, [showPassword])
+
   return (
     <div className={`float-input ${className}`}>
       <input
         id={name}
         name={name}
-        type="text"
+        type={inputType}
         placeholder=""
         className={noBorders}
         {...rest}
@@ -34,8 +49,8 @@ const FloatInput: React.FC<FloatInputProps> = (props) => {
       </label>
 
       {isPassword && (
-        <div className="right-icon">
-          <i className="ri-eye-line" />
+        <div className="right-icon" onClick={() => setShowPassword(!showPassword)}>
+          <i className={showPassword ? 'ri-eye-off-line' : 'ri-eye-line'} />
         </div>
       )}
     </div>

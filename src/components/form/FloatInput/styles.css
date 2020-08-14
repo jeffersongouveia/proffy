@@ -54,6 +54,10 @@
   top: 23%;
 }
 
+.float-input .right-icon:hover {
+  cursor: pointer;
+}
+
 .float-input .no-top-border {
   border-top-left-radius: 0;
   border-top-right-radius: 0;
