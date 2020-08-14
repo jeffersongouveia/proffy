@@ -1,5 +1,7 @@
-import React, { useEffect, useState } from 'react'
-import { Link } from 'react-router-dom'
+import React, { FormEvent, useEffect, useState } from 'react'
+import { Link, useHistory } from 'react-router-dom'
+
+import api from '../../services/api'
 
 // @ts-ignore
 import Checkbox from '@bit/altima-assurances.altima-ui-test.ui.checkbox'
@@ -11,13 +13,27 @@ import login from '../../assets/images/backgrounds/login.svg'
 import './styles.css'
 
 function Login() {
+  const history = useHistory()
+
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
+  const [remember, setRemember] = useState(false)
   const [isInputsFilled, setIsInputsFilled] = useState(false)
 
   function handleInputsChange() {
     const isFilled = Boolean(email && password)
     setIsInputsFilled(isFilled)
+  }
+
+  function handleSubmit(e: FormEvent) {
+    e.preventDefault()
+    api.post('/users/log-in', { email, password })
+      .then(({ data }) => {
+        const storage = remember ? localStorage : sessionStorage
+        storage.setItem('user', JSON.stringify(data))
+        history.push('/')
+      })
+      .catch(console.error)
   }
 
   useEffect(handleInputsChange, [email, password])
@@ -61,11 +77,15 @@ function Login() {
           />
 
           <div className="remember-me">
-            <Checkbox value="Lembrar-me" />
+            <Checkbox
+              value="Lembrar-me"
+              checked={remember}
+              onChange={() => setRemember(!remember)}
+            />
           </div>
 
           <Link
-            to="/forget-my-password"
+            to="/forgot-my-password"
             className="forgot-password"
           >
             Esqueci minha senha
@@ -75,6 +95,7 @@ function Login() {
             width="100%"
             className="sign-in"
             disabled={!isInputsFilled}
+            onClick={handleSubmit}
           >
             Entrar
           </Button>
