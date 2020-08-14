@@ -65,7 +65,7 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
 const Button: React.FC<ButtonProps> = ({ children, disabled, ...rest }) => {
   return (
     <ThemeProvider theme={disabled ? theme.disabled : theme.enabled}>
-      <StyledButton {...rest}>
+      <StyledButton disabled={disabled} {...rest}>
         {children}
       </StyledButton>
     </ThemeProvider>
