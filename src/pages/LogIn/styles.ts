@@ -19,6 +19,7 @@ export const Footer = styled.div`
   a {
     font: 600 1.6rem Poppins;
     color: var(--color-primary);
+    text-decoration: underline;
   }
   
   a:hover {

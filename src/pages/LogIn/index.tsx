@@ -15,7 +15,7 @@ import heart from '../../assets/images/icons/purple-heart.svg'
 import { Footer, Right } from './styles'
 import './styles.css'
 
-function Login() {
+function LogIn() {
   const history = useHistory()
 
   const [email, setEmail] = useState('')
@@ -122,4 +122,4 @@ function Login() {
   )
 }
 
-export default Login
+export default LogIn

@@ -1,0 +1,9 @@
+.link {
+  height: 3.2rem;
+  transition: opacity 0.2s;
+  color: var(--color-primary);
+}
+
+.link:hover {
+  opacity: 0.6;
+}
