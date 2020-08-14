@@ -37,6 +37,7 @@
   background: var(--color-background);
   width: 50%;
   margin: 0 auto;
+  position: relative;
 }
 
 #page-login .form h2 {

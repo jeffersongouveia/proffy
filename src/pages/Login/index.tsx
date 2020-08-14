@@ -10,6 +10,9 @@ import Button from '../../components/form/Button'
 
 import logo from '../../assets/images/logo.svg'
 import login from '../../assets/images/backgrounds/login.svg'
+import heart from '../../assets/images/icons/purple-heart.svg'
+
+import { Footer, Right } from './styles'
 import './styles.css'
 
 function Login() {
@@ -99,6 +102,20 @@ function Login() {
           >
             Entrar
           </Button>
+
+          <Footer>
+            <p>
+              Não tem conta?<br />
+
+              <Link to="/users/sign-up">
+                Cadastre-se
+              </Link>
+            </p>
+
+            <Right>
+              É de graça <img src={heart} alt="S2" />
+            </Right>
+          </Footer>
         </form>
       </div>
     </div>
