@@ -1,5 +1,6 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useHistory } from 'react-router-dom'
+import { CSSTransition } from 'react-transition-group'
 
 import api from '../../services/api'
 
@@ -14,12 +15,9 @@ import styles from './styles.module.css'
 function SignUp() {
   const history = useHistory()
 
-  const initialUser = {
-    firstName: '',
-    lastName: '',
-    email: '',
-    password: '',
-  }
+  const [showAnimation, setShowAnimation] = useState(false)
+
+  const initialUser = { firstName: '', lastName: '', email: '', password: '' }
   const [user, setUser] = useState(initialUser)
 
   function handleInput(e: React.ChangeEvent<HTMLInputElement>) {
@@ -45,10 +43,26 @@ function SignUp() {
       .catch(console.error)
   }
 
+  function registerCurrentPath() {
+    sessionStorage.setItem('from', window.location.pathname)
+  }
+
+  function checkAnimationTrigger() {
+    const isFromLogin = sessionStorage.getItem('from') === '/login'
+    setShowAnimation(isFromLogin)
+    sessionStorage.removeItem('from')
+  }
+
+  useEffect(checkAnimationTrigger, [])
+
   return (
     <Wrapper>
       <Content>
-        <Back className={styles.btnBack} />
+        <Back
+          to="/login"
+          className={styles.btnBack}
+          onClick={registerCurrentPath}
+        />
 
         <div>
           <Title>Cadastro</Title>
@@ -104,7 +118,16 @@ function SignUp() {
         </div>
       </Content>
 
-      <Welcome />
+      <CSSTransition
+        in={showAnimation}
+        timeout={900}
+        classNames={{
+          enter: styles.enter,
+          enterActive: styles.enterActive
+        }}
+      >
+        <Welcome />
+      </CSSTransition>
     </Wrapper>
   )
 }

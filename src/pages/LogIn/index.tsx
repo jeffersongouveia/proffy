@@ -1,22 +1,25 @@
-import React, { FormEvent, useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Link, useHistory } from 'react-router-dom'
+import { CSSTransition } from 'react-transition-group'
 
 import api from '../../services/api'
 
 // @ts-ignore
 import Checkbox from '@bit/altima-assurances.altima-ui-test.ui.checkbox'
+import Welcome from '../../components/Welcome'
 import FloatInput from '../../components/form/FloatInput'
 import Button from '../../components/form/Button'
 
-import logo from '../../assets/images/logo.svg'
-import login from '../../assets/images/backgrounds/login.svg'
 import heart from '../../assets/images/icons/purple-heart.svg'
 
 import { Footer, Right } from './styles'
+import styles from './styles.module.css'
 import './styles.css'
 
 function LogIn() {
   const history = useHistory()
+
+  const [showAnimation, setShowAnimation] = useState(false)
 
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
@@ -28,7 +31,7 @@ function LogIn() {
     setIsInputsFilled(isFilled)
   }
 
-  function handleSubmit(e: FormEvent) {
+  function handleSubmit(e: React.FormEvent) {
     e.preventDefault()
     api.post('/users/log-in', { email, password })
       .then(({ data }) => {
@@ -39,22 +42,34 @@ function LogIn() {
       .catch(console.error)
   }
 
+  function handleSignUp() {
+    sessionStorage.setItem('from', window.location.pathname)
+    history.push('/sign-up')
+  }
+
+  function checkAnimationTrigger() {
+    const isFromSignUp = sessionStorage.getItem('from') === '/sign-up'
+    setShowAnimation(isFromSignUp)
+    sessionStorage.removeItem('from')
+  }
+
+  useEffect(checkAnimationTrigger, [])
   useEffect(handleInputsChange, [email, password])
 
   return (
     <div id="page-login">
-      <div className="container-welcome">
-        <img src={login} alt="Background" />
-
-        <div className="welcome">
-          <img src={logo} alt="Proffy" />
-
-          <h1>
-            Sua plataforma de<br />
-            estudos online
-          </h1>
+      <CSSTransition
+        in={showAnimation}
+        timeout={900}
+        classNames={{
+          enter: styles.enter,
+          enterActive: styles.enterActive,
+        }}
+      >
+        <div className="container-welcome">
+          <Welcome />
         </div>
-      </div>
+      </CSSTransition>
 
       <div className="form">
         <h2>Fazer login</h2>
@@ -107,9 +122,9 @@ function LogIn() {
             <p>
               Não tem conta?<br />
 
-              <Link to="/users/sign-up">
+              <a onClick={handleSignUp}>
                 Cadastre-se
-              </Link>
+              </a>
             </p>
 
             <Right>
