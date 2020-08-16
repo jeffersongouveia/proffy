@@ -1,5 +1,44 @@
 import styled from 'styled-components'
 
+export const Wrapper = styled.div`
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  width: 100%;
+  height: 100%;
+`
+
+export const Content = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  background: var(--color-background);
+  width: 50%;
+  margin: 0 auto;
+  position: relative;
+`
+
+export const Title = styled.h2`
+  font: 3.6rem Poppins;
+  font-weight: 600;
+  line-height: 36px;
+  margin-bottom: 4rem;
+  width: 100%;
+`
+
+export const Form = styled.form`
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas:
+    "email email"
+    "password password"
+    "remember-me forgot-password"
+    "sign-in sign-in";
+  align-items: center;
+  width: 100%;
+`
+
 export const Footer = styled.div`
   position: absolute;
   display: inline-flex;

@@ -5,6 +5,8 @@ export const Wrapper = styled.div`
   grid-template-areas: 'welcome';
   place-items: center;
 
+  width: 100%;
+  height: 100%;
   background: var(--color-primary);
   
   img {

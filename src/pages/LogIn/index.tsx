@@ -12,9 +12,8 @@ import Button from '../../components/form/Button'
 
 import heart from '../../assets/images/icons/purple-heart.svg'
 
-import { Footer, Right } from './styles'
+import { Wrapper, Content, Title, Form, Footer, Right } from './styles'
 import styles from './styles.module.css'
-import './styles.css'
 
 function LogIn() {
   const history = useHistory()
@@ -57,7 +56,7 @@ function LogIn() {
   useEffect(handleInputsChange, [email, password])
 
   return (
-    <div id="page-login">
+    <Wrapper>
       <CSSTransition
         in={showAnimation}
         timeout={900}
@@ -66,20 +65,20 @@ function LogIn() {
           enterActive: styles.enterActive,
         }}
       >
-        <div className="container-welcome">
+        <div className={styles.welcome}>
           <Welcome />
         </div>
       </CSSTransition>
 
-      <div className="form">
-        <h2>Fazer login</h2>
+      <Content>
+        <Title>Fazer login</Title>
 
-        <form>
+        <Form>
           <FloatInput
             name="email"
             label="E-mail"
             value={email}
-            className="email"
+            className={styles.email}
             disableBottomBorder
             onChange={(e) => setEmail(e.target.value)}
           />
@@ -88,13 +87,13 @@ function LogIn() {
             name="password"
             label="Senha"
             value={password}
-            className="password"
+            className={styles.password}
             disableTopBorder
             isPassword
             onChange={(e) => setPassword(e.target.value)}
           />
 
-          <div className="remember-me">
+          <div className={styles.rememberMe}>
             <Checkbox
               value="Lembrar-me"
               checked={remember}
@@ -104,14 +103,14 @@ function LogIn() {
 
           <Link
             to="/forgot-my-password"
-            className="forgot-password"
+            className={styles.forgotPassword}
           >
             Esqueci minha senha
           </Link>
 
           <Button
             width="100%"
-            className="sign-in"
+            className={styles.login}
             disabled={!isInputsFilled}
             onClick={handleSubmit}
           >
@@ -131,9 +130,9 @@ function LogIn() {
               É de graça <img src={heart} alt="S2" />
             </Right>
           </Footer>
-        </form>
-      </div>
-    </div>
+        </Form>
+      </Content>
+    </Wrapper>
   )
 }
 
